@@ -7,8 +7,10 @@ import { Keg } from '../keg.model';
   styleUrls: ['./new-keg.component.css']
 })
 export class NewKegComponent{
-  @Output() newKegSender = new EventEmitter;
 
+
+  @Output() newKegSender = new EventEmitter;
+  showAddNewKegForm = false;
   submitNewKeg(name: string, brand: string, price: number, abv: number) {
     var newKeg = new Keg(name, brand, price, abv)
     this.newKegSender.emit(newKeg)

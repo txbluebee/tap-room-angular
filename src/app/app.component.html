@@ -7,14 +7,16 @@
   <div class="row">
     <div class="col-sm-9">
       <h3>Keg List</h3>
+      <!-- Add New Keg  -->
+      <app-new-keg (newKegSender)="addNewKeg($event)"></app-new-keg>
+
       <!-- Display Kegs -->
       <app-keg-list
       [kegList]="kegList" (editKegSender)="editKeg($event)"
       (sellPintSender)="sellPint($event)"
       ></app-keg-list>
 
-      <!-- Add New Keg  -->
-      <app-new-keg (newKegSender)="addNewKeg($event)"></app-new-keg>
+
     </div>
     <div class="col-sm-3">
       <app-edit-keg [selectedKeg]="selectedKeg" (doneUpdateSender)="finishUpdate()"></app-edit-keg>
