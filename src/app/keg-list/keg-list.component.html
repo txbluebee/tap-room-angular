@@ -1,9 +1,27 @@
-<select (change)="onChange($event.target.value)">
-  <option value="allKegs" selected="selected">All Kegs</option>
-  <option value="lowBeer" >Low Beer</option>
-</select>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>Sort by Beer Level:</label>
+      <select (change)="onChange($event.target.value)" class="form-control">
+        <option value="allKegs" selected="selected">All Kegs</option>
+        <option value="lowBeer" >Low Beer</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>Sort by Beer Brand:</label>
+      <select (change)="onChangeBeerBrand($event.target.value)" class="form-control">
+        <option value="allBrands" selected="selected">All Brands</option>
+        <option *ngFor="let keg of kegList " value="{{keg.brand}}">{{keg.brand}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
 <ul>
-  <li *ngFor="let keg of kegList | remainingPints:filterByBeerLevel" class="my-2">{{keg.name}} / {{keg.brand}} / {{keg.abv}}% / ${{keg.price}} / <b>{{keg.pints}} pints</b>
+  <li *ngFor="let keg of kegList | remainingPints:filterByBeerLevel | beerBrand: filterByBeerBrand" class="my-2">{{keg.name}} / {{keg.brand}} / <span [class]="strongBeer(keg)">{{keg.abv}}%</span> / <span [class]="priceColor(keg)">${{keg.price}}</span> / <b>{{keg.pints}} pints</b>
     <button (click)="editKeg(keg)" class="btn btn-primary ml-3">Edit Beer!</button>
     <button (click)="sellPint(keg)" class="btn btn-warning">Sold a Pint</button>
   </li>

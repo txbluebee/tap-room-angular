@@ -12,6 +12,7 @@ export class KegListComponent{
   @Output() sellPintSender = new EventEmitter;
 
   filterByBeerLevel: string = "allKegs"
+  filterByBeerBrand: string = "allBrands"
 
   editKeg(keg){
     this.editKegSender.emit(keg);
@@ -24,4 +25,23 @@ export class KegListComponent{
   onChange(beerLevelOption) {
     this.filterByBeerLevel = beerLevelOption;
   }
+
+  onChangeBeerBrand(beerBrandOption){
+    this.filterByBeerBrand = beerBrandOption;
+  }
+
+  priceColor(keg) {
+    if (keg.price > 5) {
+      return 'text-danger';
+    } else {
+      return 'text-primary';
+    }
+  }
+
+  strongBeer(keg) {
+    if (keg.abv > 7) {
+      return 'strong-beer'
+    }
+  }
+
 }

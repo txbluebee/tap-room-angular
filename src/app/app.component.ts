@@ -25,7 +25,12 @@ export class AppComponent {
   }
 
   editKeg(keg){
-    this.selectedKeg = keg;
+    if(this.selectedKeg === keg) {
+      this.selectedKeg = null;
+    }
+    else {
+      this.selectedKeg = keg;
+    }
   }
   finishUpdate(){
     this.selectedKeg = null;

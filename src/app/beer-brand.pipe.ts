@@ -2,22 +2,22 @@ import {Pipe, PipeTransform} from '@angular/core';
 import { Keg } from './keg.model';
 
 @Pipe({
-  name: "remainingPints",
+  name: "beerBrand",
   pure: false
 })
 
 
-export class RemainingPintsPipe implements PipeTransform {
-  transform(input: Keg[], filterByBeerLevel) {
+export class BeerBrandPipe implements PipeTransform {
+  transform(input: Keg[], filterByBeerBrand) {
     var output: Keg[] = [];
-    if(filterByBeerLevel === "allKegs") {
+    if(filterByBeerBrand === "allBrands") {
       for (var i = 0; i < input.length; i++) {
         output.push(input[i]);
       }
       return output;
-    } else if (filterByBeerLevel === "lowBeer") {
+    } else {
       for (var i = 0; i < input.length; i++) {
-        if (input[i].pints <= 120) {
+        if (input[i].brand === filterByBeerBrand) {
           output.push(input[i]);
         }
       }
