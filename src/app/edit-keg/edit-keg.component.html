@@ -1,0 +1,20 @@
+<div *ngIf="selectedKeg">
+  <h4>Add New Keg: </h4>
+  <div class="form-group">
+    <label>Beers name:</label>
+    <input [(ngModel)]="selectedKeg.name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Beers brand:</label>
+    <input [(ngModel)]="selectedKeg.brand" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Beers price:</label>
+    <input [(ngModel)]="selectedKeg.price" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Beers abv%:</label>
+    <input [(ngModel)]="selectedKeg.abv" class="form-control">
+  </div>
+  <button class="btn btn-danger" (click)="doneUpdate()">Update</button>
+</div>

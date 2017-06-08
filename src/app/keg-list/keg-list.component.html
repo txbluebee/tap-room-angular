@@ -1,0 +1,10 @@
+<select (change)="onChange($event.target.value)">
+  <option value="allKegs" selected="selected">All Kegs</option>
+  <option value="lowBeer" >Low Beer</option>
+</select>
+<ul>
+  <li *ngFor="let keg of kegList | remainingPints:filterByBeerLevel" class="my-2">{{keg.name}} / {{keg.brand}} / {{keg.abv}}% / ${{keg.price}} / <b>{{keg.pints}} pints</b>
+    <button (click)="editKeg(keg)" class="btn btn-primary ml-3">Edit Beer!</button>
+    <button (click)="sellPint(keg)" class="btn btn-warning">Sold a Pint</button>
+  </li>
+</ul>

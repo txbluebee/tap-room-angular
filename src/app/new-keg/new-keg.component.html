@@ -1,0 +1,22 @@
+<div class="row new-keg-form">
+  <div class="col-sm-6">
+    <h4>Add New Keg: </h4>
+    <div class="form-group">
+      <label>Enter Beers name:</label>
+      <input #newName class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Enter Beers brand:</label>
+      <input #newBrand class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Enter Beers price:</label>
+      <input #newPrice class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Enter Beers abv%:</label>
+      <input #newAbv class="form-control">
+    </div>
+    <button (click)="submitNewKeg(newName.value, newBrand.value, newPrice.value, newAbv.value)" class="btn btn-success">Add</button>
+  </div>
+</div>
